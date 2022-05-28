@@ -1,0 +1,23 @@
+{
+  "name": "netlify-cms-widget-external-image",
+  "version": "0.1.0",
+  "license": "MIT",
+  "scripts": {
+    "prepack": "tsc --noEmit && vite build && tsc --emitDeclarationOnly --outDir dist/"
+  },
+  "dependencies": {
+    "netlify-cms-core": "^2.55.2",
+    "react": "^17.0.2"
+  },
+  "devDependencies": {
+    "@types/react": "^17.0.45",
+    "@vitejs/plugin-react": "^1.3.0",
+    "netlify-cms-core": "^2.55.2",
+    "typescript": "^4.6.3",
+    "vite": "^2.9.9"
+  },
+  "peerDependencies": {
+    "netlify-cms-core": "^2.55.2",
+    "react": "^17.0.2"
+  }
+}
