@@ -1,0 +1,5 @@
+node_modules
+.vscode
+*.log
+
+/netlify-cms-widget-external-image-*.*.*.tgz
