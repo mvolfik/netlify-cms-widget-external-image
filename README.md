@@ -4,6 +4,8 @@ Image widget for Netlify CMS: upload image to an external server and store just 
 
 ## Usage
 
+`npm install --save-dev react@17 react-dom@17 netlify-cms-app netlify-cms-widget-external-image`
+
 ```js
 import CMS from "netlify-cms-app";
 import ExternalImage from "netlify-cms-widget-external-image";
@@ -12,12 +14,35 @@ CMS.registerWidget(
   "external-image",
   ExternalImage(
     async (f) => {
-      /* upload ... */ return assetId;
+      // upload ...
+      return "some-asset-id";
     },
     (assetId) => `https://myassetserver.com/asset/${assetId}`
   )
 );
 CMS.init();
+```
+
+It is also possible to use Netlify CMS including this widget without any bundling, using scripts from a CDN. Insert the following before the `</body>` tag.
+
+```html
+<script src="https://cdn.jsdelivr.net/npm/react@17/umd/react.production.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/react-dom@17/umd/react-dom.production.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/netlify-cms-widget-external-image@0.1/dist/ExternalImage.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/netlify-cms-app@2/dist/netlify-cms-app.min.js"></script>
+<script>
+  NetlifyCmsApp.registerWidget(
+    "external-image",
+    NetlifyCMSWidgetExternalImage(
+      async (f) => {
+        // upload ...
+        return "some-asset-id";
+      },
+      (assetId) => `https://myassetserver.com/asset/${assetId}`
+    )
+  );
+  NetlifyCmsApp.init();
+</script>
 ```
 
 ## API

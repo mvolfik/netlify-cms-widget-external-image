@@ -2,6 +2,8 @@
   "name": "netlify-cms-widget-external-image",
   "version": "0.1.0",
   "license": "MIT",
+  "repository": "github:mvolfik/netlify-cms-widget-external-image",
+  "author": "Matěj Volf",
   "scripts": {
     "prepack": "tsc --noEmit && vite build && tsc --emitDeclarationOnly --outDir dist/"
   },
@@ -19,5 +21,14 @@
   "peerDependencies": {
     "netlify-cms-core": "^2.55.2",
     "react": "^17.0.2"
+  },
+  "main": "./dist/ExternalImage.umd.js",
+  "module": "./dist/ExternalImage.es.js",
+  "types": "./dist/ExternalImage.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/ExternalImage.es.js",
+      "require": "./dist/ExternalImage.umd.js"
+    }
   }
 }

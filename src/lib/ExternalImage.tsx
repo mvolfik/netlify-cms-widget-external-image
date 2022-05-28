@@ -50,9 +50,15 @@ function createExternalImageWidget(
       assertDefined(this.inputRef?.current).value = "";
     }
     render() {
-      console.log(this);
       return (
-        <div className={this.props.classNameWrapper}>
+        <div
+          className={this.props.classNameWrapper}
+          style={{
+            display: "grid",
+            gridTemplateColumns: "auto 1fr",
+            gap: "10px",
+          }}
+        >
           {this.props.value ? (
             <>
               Current image:
@@ -61,6 +67,7 @@ function createExternalImageWidget(
                   field: this.props.field,
                   entry: this.props.entry,
                 })}
+                style={{ maxHeight: "150px" }}
               />
               Replace:
             </>
@@ -76,9 +83,13 @@ function createExternalImageWidget(
           />
           {this.state.preview !== undefined && (
             <>
-              Preview: <img src={URL.createObjectURL(this.state.preview)} />
+              Preview:{" "}
+              <img
+                src={URL.createObjectURL(this.state.preview)}
+                style={{ maxHeight: "150px" }}
+              />
               <button onClick={this.handleSave} disabled={this.state.saving}>
-                {this.state.saving ? "Saving..." : "Save"}
+                {this.state.saving ? "Uploading..." : "Use this image"}
               </button>
             </>
           )}
